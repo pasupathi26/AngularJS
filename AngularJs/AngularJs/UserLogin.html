@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="mymodel" ng-controller="mycontroller">
+<head>
+    <title>EUO Login Page</title>
+    <script src="Script/angular.js"></script>
+    <script src="Script/Custom.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <!-- Customized CSS  -->
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <style>
+        body
+        {
+            font-family: Roboto;
+        }
+
+        .wrapper
+        {
+            border: 1px solid #fff;
+            position: absolute;
+            top: 25%;
+            bottom: 25%;
+            left: 25%;
+            right: 25%;
+            margin-left: auto;
+            margin-right: auto;
+            width: 676px;
+            max-width: 676px;
+            background-color:;
+        }
+
+        h2
+        {
+            text-align: center;
+            font-family: Roboto;
+            font-weight: normal;
+            color: rgba(0,0,0,0.54);
+            font-size: 32px;
+        }
+
+        .logo
+        {
+            text-align: center;
+            height: 40px;
+        }
+
+        img
+        {
+            padding: 8px;
+        }
+
+
+        input
+        {
+            width: 320px;
+            color: rgba(0,0,0,0.87);
+            font-size: 14px;
+            font-weight: normal;
+        }
+
+        .input-group
+        {
+            margin: 0 auto;
+            margin-top: 48px;
+        }
+
+
+        #txtusername
+        {
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
+            border-bottom-right-radius: 0px;
+            border-bottom-left-radius: 0px;
+            border-color: rgba(0,0,0,0.1);
+            border-bottom: 0px;
+            height: 40px;
+        }
+
+        #txtpassword
+        {
+            border-top-left-radius: 0px;
+            border-top-right-radius: 0px;
+            border-bottom-right-radius: 3px;
+            border-bottom-left-radius: 3px;
+            border-color: rgba(0,0,0,0.1);
+            height: 42px;
+        }
+
+        #password
+        {
+            margin-top: 0px;
+        }
+
+        #signin_btn
+        {
+            height: 40px;
+            border-color: #4178Be;
+            border-radius: 3px;
+            background-color: #4178Be;
+            border-style: solid;
+            color: #fff;
+        }
+
+        input::-webkit-input-placeholder
+        {
+            color: rgba(0,0,0,0.54) !important;
+            font-size: 14px;
+            padding-left: 8px;
+        }
+
+        .header
+        {
+            height: 42px;
+        }
+    </style>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#signin_btn").on("click", function () {
+                var result = false;
+                if ($("#txtusername").val() == "") {
+                    $("#lblusername").html("Username cannot be blank");
+                    result = true;
+                }
+                //else if (!isEmail($("#txtusername").val())) {
+                //    $("#lblusername").html("Username should be in Email Format");
+                //    result = true;
+                //}
+
+                if ($("#txtpassword").val() == "") {
+                    $("#lblpassword").html("password cannot be blank");
+                    result = true;
+                }
+
+                //if (!result) {
+                //    var pathname = window.location.pathname
+                //    var url = pathname.substr(0, pathname.lastIndexOf('/') + 1);
+                //    alert(url);
+                //    window.location.href = url + 'Landing_page.html';
+                //}
+            });
+
+            $("#txtusername").on('change keyup mouseup', function () {
+                $("#lblusername").text('');
+                $("#lblpassword").text('');
+            });
+
+            $("#txtpassword").on('change keyup mouseup', function () {
+                $("#lblusername").text('');
+                $("#lblpassword").text('');
+            });
+        });
+
+        function isEmail(email) {
+            var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+            return regex.test(email);
+        }
+    </script>
+
+
+</head>
+<body>
+    <div class="container">
+        <div class="wrapper" style="min-height: 300px">
+            <div class="header">
+                <h2>End User Orchestrator</h2>
+            </div>
+            <div class="logo">
+                <img src="compucom-logo.png">
+            </div>
+            <div class="input-group">
+                <input type="text" id="txtusername" ng-model="txtusername" placeholder="username" onfocus="this.placeholder = ''" onblur="this.placeholder = 'username'" />
+            </div>
+            <div class="input-group" id="password">
+                <input type="password" id="txtpassword" ng-model="txtpassword" placeholder="******" onfocus="this.placeholder = ''" onblur="this.placeholder = '******'" /><br />
+                <label id="lblusername" style="color: #ff5050; font-size: 12px; font-weight: normal;"></label>
+                <br />
+                <label id="lblpassword" style="color: #ff5050; font-size: 12px; font-weight: normal;"></label>
+            </div>
+            <div>
+                <span ng-bind="ErrorMessage"></span>
+                <span ng-bind="val"></span>
+            </div>
+            <div class="input-group" id="btn" style="margin-top: 0px;">
+                <input type="button" id="signin_btn" ng-click="Login_click()" value="Sign In" />
+            </div>
+
+        </div>
+        <div style="position: fixed; bottom: 0px">
+            <div class="container footer customfooter">
+                Copyright CompuCom 2016. All Rights Reserved • <a class="footerlink" href="">Contact Us</a>.
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
