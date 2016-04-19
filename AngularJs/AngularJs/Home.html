@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Home</title>
+    <script src="Script/angular.js"></script>
+    <script src="Script/Custom.js"></script>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <!-- Font Roboto -->
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <script src="multistepform.js"></script>
+
+    <!-- Custom CSS Styles  -->
+    <link href="styles.css" rel="stylesheet" type="text/css">
+
+    <!--including Google Icons sets here--->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.popper').popover({
+                placement: 'bottom',
+                container: 'body',
+                html: true,
+                content: function () {
+                    return $(this).next('.dropdown-menu').html();
+                }
+            });
+        });
+
+    </script>
+    <style>
+	
+
+
+	</style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="navbar">
+            <ul>
+                <li><a href="#home">EUO Manager</a></li>
+                <li class="headerDivider"></li>
+                <li><a href="#news" class="active">In Progress</a></li>
+                <li><a href="#contact">All Domains</a></li>
+                <!-- <li class="dropdown" style="float:right;margin-right:32px;">
+                    <a href="#" class="popper" data-toggle="popover" >Ragav <i class="material-icons rotate2">keyboard_arrow_down</i></a>
+					<ul class="dropdown-menu">
+                        <li class="dropdown-header">Site Creator</li>
+                        <li class="divider"></li>
+                        <li><a href="#">Account Details</a></li>
+                        <li><a href="#">Sign Out</a></li>
+                    </ul>
+                </li> -->
+                <li class="dropdown" style="float: right; margin-right: 32px;">
+                    <a class="popper" data-toggle="popover" href="#">Ragav <i class="material-icons rotate2">keyboard_arrow_down</i></a>
+                    <ul class="dropdown-menu">
+                        <li class="list_header">Site Creator</li>
+                        <li class="acc_details"><a href="#">Account Details</a></li>
+                        <li class="hr"></li>
+                        <li class="acc_details"><a href="">Sign Out</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div ng-app="mymodel" ng-controller="mycontroller">
+            {{10+20}}
+            {{Successmessage}}
+        
+         <span ng-bind="Successmessage"></span>
+        </div>
+
+        <div id="wrapper">
+            <div class="col-1">
+                <span class="first_column">6 Domains</span><span style="float: right; padding-right: 8px;">
+                    <i class="customized_icons">search</i></span>
+            </div>
+            <div class="col-2"></div>
+            <div class="col-3">
+                <span>
+                    <button data-toggle="modal" data-target="#myModal" class="btn btn-xl" data-backdrop="static" data-keyboard="false">
+                        <a data-toggle="tooltip" data-placement="top" title="Create a New Domain" class="blue-tooltip">New Domain</a></button>
+                </span>
+            </div>
+        </div>
+
+        <div id="wrapper2">
+            <div class="col-1" style="background-color: ;">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th class="col-sm-5 first_column"><a href="#" data-toggle="tooltip" data-placement="top" title="Displays the list of companies" class="blue-tooltip">Domain</a></th>
+                            <th class="col-sm-2"><a href="#" data-toggle="tooltip" data-placement="top" title="Shows the status of each domain" class="blue-tooltip">Status</a></th>
+                            <th class="col-sm-2"><a href="#" data-toggle="tooltip" data-placement="top" title="To whom the Domain is assigned to" class="blue-tooltip">Owner</a></th>
+                            <th class="col-sm-3"><a href="#" data-toggle="tooltip" data-placement="top" title="When the Domain was last accessed" class="blue-tooltip last_column">Last Activity (CT)</a></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr data-toggle="modal" data-target="#domainConfig">
+                            <td>ESPN_Domain (ESPN)</td>
+                            <td>Submitted</td>
+                            <td class=""></td>
+                            <td class="last_data">Nov 07, 2015 at 10:11am </td>
+                        </tr>
+                        <tr data-toggle="modal" data-target="#myModal">
+                            <td>IBMWatsonTeam_Domain (IBM)</td>
+                            <td>Draft</td>
+                            <td class="">James Jones</td>
+                            <td class="last_data">Nov 15, 2015 at 16:14pm</td>
+                        </tr>
+                        <tr data-toggle="modal" data-target="#domainConfig">
+                            <td>Walgreens_Domain (Walgreens)</td>
+                            <td>In Progress</td>
+                            <td class="">Kevin</td>
+                            <td class="last_data">Nov 26, 2015 at 15:23pm</td>
+                        </tr>
+                        <tr data-toggle="modal" data-target="#domainConfig">
+                            <td>Walmart_Domain (Walmart)</td>
+                            <td>In Progress</td>
+                            <td class="">Bruce Jones</td>
+                            <td class="last_data">Nov 27, 2015 at 17:11pm</td>
+                        </tr>
+                        <tr data-toggle="modal" data-target="#myModal">
+                            <td>CVS_Domain (CVS)</td>
+                            <td>Draft</td>
+                            <td class="">Ragav</td>
+                            <td class="last_data">Nov 29, 2015 at 18:15pm</td>
+                        </tr>
+                        <tr data-toggle="modal" data-target="#myModal">
+                            <td>Omnicare_Domain (Omnicare)</td>
+                            <td>Draft</td>
+                            <td class="">Jackie North</td>
+                            <td class="last_data">Dec 24, 2015 at 07:11am</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="col-2"></div>
+            <div class="col-3" style="margin-top: 56px;">
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <a href="#" class="item"><i class="material-icons">perm_identity</i></a>
+                        <a href="#" class="item">My Work</a>
+                        <a class="item pull-right" style="font-size: 18px; margin-top: -2px; font-weight: normal;">1</a>
+                    </li>
+                    <li class="list-group-item active">
+                        <a href="#"><i class="material-icons">panorama_fish_eye</i></a>
+                        <a href="#" class="item">Un Assigned</a>
+                        <a class="pull-right">1</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="#"><i class="material-icons">assignment</i></a>
+                        <a href="#" class="item">Assigned</a>
+                        <a class="pull-right">5</a>
+                    </li>
+                    <li class="list-group-item horizontaldivider">
+                        <hr />
+                    </li>
+                    <li class="list-group-item">
+                        <a href="#"><i class="material-icons">drafts</i></a>
+                        <a href="#" class="item">Draft</a>
+                        <a class="pull-right">3</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="#"><i class="material-icons">notifications</i></a>
+                        <a href="#" class="item">Submitted</a>
+                        <a class="pull-right">1</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="#"><i class="material-icons">access_time</i></a>
+                        <a href="#" class="item">In Progress</a>
+                        <a class="pull-right">2</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="extra_content"></div>
+
+    <div data-role="footer" data-position="fixed">
+        <div class="container footer customfooter">
+            Copyright CompuCom 2016. All Rights Reserved • <a class="footerlink" href="">Contact Us</a>.
+        </div>
+    </div>
+
+
+</body>
+</html>
