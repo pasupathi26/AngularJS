@@ -1,4 +1,5 @@
-﻿var app = angular.module('myApp', ['zingchart-angularjs']);
+﻿
+var app = angular.module('myApp', ['zingchart-angularjs']);
 
 app.controller('MainController', function ($scope) {
 
